@@ -1,0 +1,514 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00359BAF2BB8832700471664 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 00359BAE2BB8832700471664 /* RealityKitContent */; };
+		00359BB12BB8832700471664 /* SparklerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00359BB02BB8832700471664 /* SparklerApp.swift */; };
+		00359BB32BB8832700471664 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00359BB22BB8832700471664 /* ContentView.swift */; };
+		00359BB52BB8832700471664 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00359BB42BB8832700471664 /* ImmersiveView.swift */; };
+		00359BB72BB8832700471664 /* ImageBasedLighting.skybox in Resources */ = {isa = PBXBuildFile; fileRef = 00359BB62BB8832700471664 /* ImageBasedLighting.skybox */; };
+		00359BB92BB8832A00471664 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00359BB82BB8832A00471664 /* Assets.xcassets */; };
+		00359BBC2BB8832A00471664 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00359BBB2BB8832A00471664 /* Preview Assets.xcassets */; };
+		00359BC72BB8832B00471664 /* SparklerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00359BC62BB8832B00471664 /* SparklerTests.swift */; };
+		00359BD12BB887D100471664 /* SnapGestureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00359BD02BB887D100471664 /* SnapGestureModel.swift */; };
+		00359BD32BB88B6600471664 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00359BD22BB88B6600471664 /* Extensions.swift */; };
+		00359BD52BB8A39700471664 /* GlobalEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00359BD42BB8A39700471664 /* GlobalEntities.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00359BC32BB8832B00471664 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00359BA12BB8832700471664 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00359BA82BB8832700471664;
+			remoteInfo = Sparkler;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00359BA92BB8832700471664 /* Sparkler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sparkler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00359BAD2BB8832700471664 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
+		00359BB02BB8832700471664 /* SparklerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparklerApp.swift; sourceTree = "<group>"; };
+		00359BB22BB8832700471664 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		00359BB42BB8832700471664 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
+		00359BB62BB8832700471664 /* ImageBasedLighting.skybox */ = {isa = PBXFileReference; lastKnownFileType = file.skybox; path = ImageBasedLighting.skybox; sourceTree = "<group>"; };
+		00359BB82BB8832A00471664 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		00359BBB2BB8832A00471664 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		00359BBD2BB8832A00471664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00359BC22BB8832B00471664 /* SparklerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparklerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00359BC62BB8832B00471664 /* SparklerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparklerTests.swift; sourceTree = "<group>"; };
+		00359BD02BB887D100471664 /* SnapGestureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapGestureModel.swift; sourceTree = "<group>"; };
+		00359BD22BB88B6600471664 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		00359BD42BB8A39700471664 /* GlobalEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEntities.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00359BA62BB8832700471664 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00359BAF2BB8832700471664 /* RealityKitContent in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00359BBF2BB8832B00471664 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00359BA02BB8832700471664 = {
+			isa = PBXGroup;
+			children = (
+				00359BAB2BB8832700471664 /* Sparkler */,
+				00359BAC2BB8832700471664 /* Packages */,
+				00359BC52BB8832B00471664 /* SparklerTests */,
+				00359BAA2BB8832700471664 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		00359BAA2BB8832700471664 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				00359BA92BB8832700471664 /* Sparkler.app */,
+				00359BC22BB8832B00471664 /* SparklerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		00359BAB2BB8832700471664 /* Sparkler */ = {
+			isa = PBXGroup;
+			children = (
+				00359BD02BB887D100471664 /* SnapGestureModel.swift */,
+				00359BD42BB8A39700471664 /* GlobalEntities.swift */,
+				00359BB02BB8832700471664 /* SparklerApp.swift */,
+				00359BB22BB8832700471664 /* ContentView.swift */,
+				00359BB42BB8832700471664 /* ImmersiveView.swift */,
+				00359BD22BB88B6600471664 /* Extensions.swift */,
+				00359BB62BB8832700471664 /* ImageBasedLighting.skybox */,
+				00359BB82BB8832A00471664 /* Assets.xcassets */,
+				00359BBD2BB8832A00471664 /* Info.plist */,
+				00359BBA2BB8832A00471664 /* Preview Content */,
+			);
+			path = Sparkler;
+			sourceTree = "<group>";
+		};
+		00359BAC2BB8832700471664 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				00359BAD2BB8832700471664 /* RealityKitContent */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		00359BBA2BB8832A00471664 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				00359BBB2BB8832A00471664 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		00359BC52BB8832B00471664 /* SparklerTests */ = {
+			isa = PBXGroup;
+			children = (
+				00359BC62BB8832B00471664 /* SparklerTests.swift */,
+			);
+			path = SparklerTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00359BA82BB8832700471664 /* Sparkler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00359BCA2BB8832B00471664 /* Build configuration list for PBXNativeTarget "Sparkler" */;
+			buildPhases = (
+				00359BA52BB8832700471664 /* Sources */,
+				00359BA62BB8832700471664 /* Frameworks */,
+				00359BA72BB8832700471664 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sparkler;
+			packageProductDependencies = (
+				00359BAE2BB8832700471664 /* RealityKitContent */,
+			);
+			productName = Sparkler;
+			productReference = 00359BA92BB8832700471664 /* Sparkler.app */;
+			productType = "com.apple.product-type.application";
+		};
+		00359BC12BB8832B00471664 /* SparklerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00359BCD2BB8832B00471664 /* Build configuration list for PBXNativeTarget "SparklerTests" */;
+			buildPhases = (
+				00359BBE2BB8832B00471664 /* Sources */,
+				00359BBF2BB8832B00471664 /* Frameworks */,
+				00359BC02BB8832B00471664 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00359BC42BB8832B00471664 /* PBXTargetDependency */,
+			);
+			name = SparklerTests;
+			productName = SparklerTests;
+			productReference = 00359BC22BB8832B00471664 /* SparklerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		00359BA12BB8832700471664 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					00359BA82BB8832700471664 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					00359BC12BB8832B00471664 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 00359BA82BB8832700471664;
+					};
+				};
+			};
+			buildConfigurationList = 00359BA42BB8832700471664 /* Build configuration list for PBXProject "Sparkler" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 00359BA02BB8832700471664;
+			productRefGroup = 00359BAA2BB8832700471664 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				00359BA82BB8832700471664 /* Sparkler */,
+				00359BC12BB8832B00471664 /* SparklerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00359BA72BB8832700471664 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00359BB92BB8832A00471664 /* Assets.xcassets in Resources */,
+				00359BBC2BB8832A00471664 /* Preview Assets.xcassets in Resources */,
+				00359BB72BB8832700471664 /* ImageBasedLighting.skybox in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00359BC02BB8832B00471664 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00359BA52BB8832700471664 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00359BD32BB88B6600471664 /* Extensions.swift in Sources */,
+				00359BD52BB8A39700471664 /* GlobalEntities.swift in Sources */,
+				00359BB32BB8832700471664 /* ContentView.swift in Sources */,
+				00359BB12BB8832700471664 /* SparklerApp.swift in Sources */,
+				00359BB52BB8832700471664 /* ImmersiveView.swift in Sources */,
+				00359BD12BB887D100471664 /* SnapGestureModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00359BBE2BB8832B00471664 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00359BC72BB8832B00471664 /* SparklerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00359BC42BB8832B00471664 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 00359BA82BB8832700471664 /* Sparkler */;
+			targetProxy = 00359BC32BB8832B00471664 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00359BC82BB8832B00471664 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = xros;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				XROS_DEPLOYMENT_TARGET = 1.1;
+			};
+			name = Debug;
+		};
+		00359BC92BB8832B00471664 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = xros;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+				XROS_DEPLOYMENT_TARGET = 1.1;
+			};
+			name = Release;
+		};
+		00359BCB2BB8832B00471664 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Sparkler/Preview Content\"";
+				DEVELOPMENT_TEAM = G4HCYWB235;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeffrey.Sparkler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+			};
+			name = Debug;
+		};
+		00359BCC2BB8832B00471664 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Sparkler/Preview Content\"";
+				DEVELOPMENT_TEAM = G4HCYWB235;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeffrey.Sparkler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+			};
+			name = Release;
+		};
+		00359BCE2BB8832B00471664 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G4HCYWB235;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sparkle.SparklerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sparkler.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sparkler";
+				XROS_DEPLOYMENT_TARGET = 1.1;
+			};
+			name = Debug;
+		};
+		00359BCF2BB8832B00471664 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G4HCYWB235;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sparkle.SparklerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sparkler.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sparkler";
+				XROS_DEPLOYMENT_TARGET = 1.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00359BA42BB8832700471664 /* Build configuration list for PBXProject "Sparkler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00359BC82BB8832B00471664 /* Debug */,
+				00359BC92BB8832B00471664 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00359BCA2BB8832B00471664 /* Build configuration list for PBXNativeTarget "Sparkler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00359BCB2BB8832B00471664 /* Debug */,
+				00359BCC2BB8832B00471664 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00359BCD2BB8832B00471664 /* Build configuration list for PBXNativeTarget "SparklerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00359BCE2BB8832B00471664 /* Debug */,
+				00359BCF2BB8832B00471664 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		00359BAE2BB8832700471664 /* RealityKitContent */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RealityKitContent;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 00359BA12BB8832700471664 /* Project object */;
+}
