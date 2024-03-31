@@ -18,6 +18,8 @@
 		00359BD12BB887D100471664 /* SnapGestureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00359BD02BB887D100471664 /* SnapGestureModel.swift */; };
 		00359BD32BB88B6600471664 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00359BD22BB88B6600471664 /* Extensions.swift */; };
 		00359BD52BB8A39700471664 /* GlobalEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00359BD42BB8A39700471664 /* GlobalEntities.swift */; };
+		00359C252BB9D80A00471664 /* sparkler-79387.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 00359C242BB9D80A00471664 /* sparkler-79387.mp3 */; };
+		00359C272BB9D81100471664 /* Torch Burning Sound Effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 00359C262BB9D81100471664 /* Torch Burning Sound Effect.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		00359BD02BB887D100471664 /* SnapGestureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapGestureModel.swift; sourceTree = "<group>"; };
 		00359BD22BB88B6600471664 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		00359BD42BB8A39700471664 /* GlobalEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEntities.swift; sourceTree = "<group>"; };
+		00359C242BB9D80A00471664 /* sparkler-79387.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sparkler-79387.mp3"; sourceTree = "<group>"; };
+		00359C262BB9D81100471664 /* Torch Burning Sound Effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Torch Burning Sound Effect.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 				00359BD22BB88B6600471664 /* Extensions.swift */,
 				00359BB62BB8832700471664 /* ImageBasedLighting.skybox */,
 				00359BB82BB8832A00471664 /* Assets.xcassets */,
+				00359C242BB9D80A00471664 /* sparkler-79387.mp3 */,
+				00359C262BB9D81100471664 /* Torch Burning Sound Effect.mp3 */,
 				00359BBD2BB8832A00471664 /* Info.plist */,
 				00359BBA2BB8832A00471664 /* Preview Content */,
 			);
@@ -212,7 +218,9 @@
 			files = (
 				00359BB92BB8832A00471664 /* Assets.xcassets in Resources */,
 				00359BBC2BB8832A00471664 /* Preview Assets.xcassets in Resources */,
+				00359C272BB9D81100471664 /* Torch Burning Sound Effect.mp3 in Resources */,
 				00359BB72BB8832700471664 /* ImageBasedLighting.skybox in Resources */,
+				00359C252BB9D80A00471664 /* sparkler-79387.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

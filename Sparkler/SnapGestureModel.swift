@@ -107,6 +107,9 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
     }
     
     func snapFinishGesture() -> SIMD3<Float>? {
+        
+        // Maybe change from tracking intermediate joints to tracking the end position which is index and thumb tip touching
+        
         print("Finish snap")
         if DateInterval(start: lastSnapStart, end: Date()).duration >= 0.5 {
             return nil
@@ -163,7 +166,7 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
     func openPalm() -> (Float, SIMD3<Float>)? {
         
         // A palm is open when a hand is facing up, with distance between the tip of your thumb and the tip of your pinky
-        if DateInterval(start: lastSnapFinish, end: Date()).duration >= 1.5 {
+        if DateInterval(start: lastSnapFinish, end: Date()).duration >= 1.5 { //TODO MAKE BIGGER
             return nil
         }
         
