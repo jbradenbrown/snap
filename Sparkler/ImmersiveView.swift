@@ -29,31 +29,61 @@ struct ImmersiveView: View {
                 // https://developer.apple.com/
             }
             
-            print("Running")
-            
             var particles = ParticleEmitterComponent()
-            particles.emitterShape = .plane
+            particles.emitterShape = .point
             particles.emitterShapeSize = [1,1,1] * 0.05
 
             particles.mainEmitter.birthRate = 2000
             particles.mainEmitter.size = 0.05
-            particles.mainEmitter.lifeSpan = 0.5
+            particles.mainEmitter.lifeSpan = 0.1
             particles.mainEmitter.color = .evolving(
                 start: .single(.blue),
                 end: .single(.red))
-            particles.mainEmitter.angleVariation = 0.2
+            particles.mainEmitter.angleVariation = 0.05
             
             particlesEntity.components.set(particles)
 
             content.add(particlesEntity)
             
         } update: { updateContent in
-            _ = gestureModel.snapStartGesture()
             
+            _ = gestureModel.snapStartGesture()
+//            
             if let sparkOrigin = gestureModel.snapFinishGesture() {
                 particlesEntity.transform.translation = SIMD3<Float>(sparkOrigin)
-            }
+                
+                var particles = ParticleEmitterComponent()
+                particles.emitterShape = .point
+                particles.emitterShapeSize = [1,1,1] * 0.05
 
+                particles.mainEmitter.birthRate = 2000
+                particles.mainEmitter.size = 0.05
+                particles.mainEmitter.lifeSpan = 0.1
+                particles.mainEmitter.color = .evolving(
+                    start: .single(.blue),
+                    end: .single(.red))
+                particles.mainEmitter.angleVariation = 0.05
+                
+                particlesEntity.components.set(particles)
+            }
+            
+            if let (sparkSize, sparkOrigin) = gestureModel.openPalm() {
+                particlesEntity.transform.translation = SIMD3<Float>(sparkOrigin)
+                
+                var particles = ParticleEmitterComponent()
+                particles.emitterShape = .sphere
+                particles.emitterShapeSize = [1,1,1] * sparkSize
+                particles.birthDirection = ParticleEmitterComponent.BirthDirection.world
+                particles.mainEmitter.birthRate = 4000
+                particles.mainEmitter.size = 0.05
+                particles.mainEmitter.lifeSpan = 0.1
+                particles.mainEmitter.color = .evolving(
+                    start: .single(.blue),
+                    end: .single(.red))
+                particles.mainEmitter.angleVariation = 0.2
+                
+                particlesEntity.components.set(particles)
+            }
             
         }
         .task {

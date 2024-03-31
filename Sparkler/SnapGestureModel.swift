@@ -14,6 +14,7 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
     let session = ARKitSession()
     var handTracking = HandTrackingProvider()
     var lastSnapStart = Date()
+    var lastSnapFinish = Date()
     @Published var latestHandTracking: HandsUpdates = .init(left: nil, right: nil)
     
     struct HandsUpdates {
@@ -66,7 +67,6 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
         }
     }
     
-    
     func snapStartGesture() -> Date? {
         print("Start snap")
         guard let rightHandAnchor = latestHandTracking.right,
@@ -76,8 +76,8 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
         }
         
         guard let rightHandThumbTipPosition = rightHandAnchor.handSkeleton?.joint(.thumbTip),
-              let rightHandIndexFingerTip = rightHandAnchor.handSkeleton?.joint(.indexFingerTip),
-              rightHandIndexFingerTip.isTracked && rightHandThumbTipPosition.isTracked
+              let rightHandMiddleFingerTip = rightHandAnchor.handSkeleton?.joint(.middleFingerTip),
+              rightHandMiddleFingerTip.isTracked && rightHandThumbTipPosition.isTracked
         else {
             return nil
         }
@@ -87,11 +87,11 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
             rightHandAnchor.originFromAnchorTransform, rightHandThumbTipPosition.anchorFromJointTransform
         ).columns.3.xyz
         
-        let originFromRightHandIndexFingerTipTransform = matrix_multiply(
-            rightHandAnchor.originFromAnchorTransform, rightHandIndexFingerTip.anchorFromJointTransform
+        let originFromRightHandMiddleFingerTipTransform = matrix_multiply(
+            rightHandAnchor.originFromAnchorTransform, rightHandMiddleFingerTip.anchorFromJointTransform
         ).columns.3.xyz
         
-        let tipDistance = distance(originFromRightHandThumbTipTransform, originFromRightHandIndexFingerTipTransform)
+        let tipDistance = distance(originFromRightHandThumbTipTransform, originFromRightHandMiddleFingerTipTransform)
         
         // Heart gesture detection is true when the distance between the index finger tips centers
         // and the distance between the thumb tip centers is each less than four centimeters.
@@ -119,8 +119,9 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
         }
         
         guard let rightHandThumbIntermediateTip = rightHandAnchor.handSkeleton?.joint(.thumbIntermediateTip),
-              let rightHandIndexFingerIntermediateTip = rightHandAnchor.handSkeleton?.joint(.indexFingerIntermediateTip),
-              rightHandIndexFingerIntermediateTip.isTracked && rightHandThumbIntermediateTip.isTracked
+              let rightHandMiddleFingerIntermediateTip = rightHandAnchor.handSkeleton?.joint(.middleFingerIntermediateTip),
+              let rightHandThumbTip = rightHandAnchor.handSkeleton?.joint(.thumbTip),
+              rightHandMiddleFingerIntermediateTip.isTracked && rightHandThumbIntermediateTip.isTracked
         else {
             return nil
         }
@@ -130,11 +131,15 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
             rightHandAnchor.originFromAnchorTransform, rightHandThumbIntermediateTip.anchorFromJointTransform
         ).columns.3.xyz
         
-        let originFromRightHandIndexFingerIntermediateTipTransform = matrix_multiply(
-            rightHandAnchor.originFromAnchorTransform, rightHandIndexFingerIntermediateTip.anchorFromJointTransform
+        let originFromRightHandMiddleFingerIntermediateTipTransform = matrix_multiply(
+            rightHandAnchor.originFromAnchorTransform, rightHandMiddleFingerIntermediateTip.anchorFromJointTransform
         ).columns.3.xyz
         
-        let pointDistance = distance(originFromRightHandThumbIntermediateTipTransform, originFromRightHandIndexFingerIntermediateTipTransform)
+        let absThumbTip = matrix_multiply(
+            rightHandAnchor.originFromAnchorTransform, rightHandThumbTip.anchorFromJointTransform
+        ).columns.3.xyz
+        
+        let pointDistance = distance(originFromRightHandThumbIntermediateTipTransform, originFromRightHandMiddleFingerIntermediateTipTransform)
         
         // Heart gesture detection is true when the distance between the index finger tips centers
         // and the distance between the thumb tip centers is each less than four centimeters.
@@ -144,10 +149,67 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
         }
         
         // Compute the position of the touching tips
-        let half_distance = (originFromRightHandThumbIntermediateTipTransform - originFromRightHandIndexFingerIntermediateTipTransform) / 2
-        let midpoint = originFromRightHandIndexFingerIntermediateTipTransform - half_distance
+        let half_distance = (originFromRightHandThumbIntermediateTipTransform - originFromRightHandMiddleFingerIntermediateTipTransform) / 2
+        let midpoint = originFromRightHandMiddleFingerIntermediateTipTransform - half_distance
         
-        return midpoint
+        snapCount += 1
         
+        lastSnapFinish = Date()
+        
+        return absThumbTip
+        
+    }
+    
+    func openPalm() -> (Float, SIMD3<Float>)? {
+        
+        // A palm is open when a hand is facing up, with distance between the tip of your thumb and the tip of your pinky
+        if DateInterval(start: lastSnapFinish, end: Date()).duration >= 1.5 {
+            return nil
+        }
+        
+        guard let rightHandAnchor = latestHandTracking.right,
+              rightHandAnchor.isTracked
+        else {
+            return nil
+        }
+        
+        guard let rightHandThumbTip = rightHandAnchor.handSkeleton?.joint(.thumbTip),
+              let rightHandPinkyTip = rightHandAnchor.handSkeleton?.joint(.littleFingerTip),
+              let rightHandIndexTip = rightHandAnchor.handSkeleton?.joint(.indexFingerTip),
+                rightHandThumbTip.isTracked && rightHandPinkyTip.isTracked && rightHandIndexTip.isTracked
+        else {
+            return nil
+        }
+        
+        let originFromRightHandThumbTip = matrix_multiply(
+            rightHandAnchor.originFromAnchorTransform, rightHandThumbTip.anchorFromJointTransform
+        ).columns.3.xyz
+        
+        let originFromRightHandPinkyTip = matrix_multiply(
+            rightHandAnchor.originFromAnchorTransform, rightHandPinkyTip.anchorFromJointTransform
+        ).columns.3.xyz
+        
+        let originFromRightHandIndexTip = matrix_multiply(
+            rightHandAnchor.originFromAnchorTransform, rightHandIndexTip.anchorFromJointTransform
+        ).columns.3.xyz
+        
+        if distance(originFromRightHandIndexTip, originFromRightHandThumbTip) <= 0.05 {
+            return nil
+        }
+        
+        let coplanar1 = normalize(originFromRightHandThumbTip - originFromRightHandPinkyTip)
+        let coplanar2 = normalize(originFromRightHandPinkyTip - originFromRightHandIndexTip)
+        
+        let plane = normalize(cross(coplanar1, coplanar2))
+        
+        let isOpenPalm = plane[1] < 0
+        if !isOpenPalm {
+            return nil
+        }
+        
+        let center = (originFromRightHandIndexTip + originFromRightHandPinkyTip + originFromRightHandThumbTip) / 3
+        let size = distance(originFromRightHandThumbTip, center)
+        
+        return (size, center)
     }
 }

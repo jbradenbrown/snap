@@ -9,3 +9,4 @@
 import RealityKit
 
 var particlesEntity = Entity()
+var snapCount = 0

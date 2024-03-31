@@ -29,6 +29,7 @@ struct ContentView: View {
                 .frame(width: 360)
                 .padding(24)
                 .glassBackgroundEffect()
+            
         }
         .padding()
         .onChange(of: showImmersiveSpace) { _, newValue in
