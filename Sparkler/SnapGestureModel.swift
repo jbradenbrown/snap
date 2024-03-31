@@ -7,6 +7,7 @@
 
 import ARKit
 import SwiftUI
+import RealityKit
 
 /// A model that contains up-to-date hand coordinate information.
 @MainActor
@@ -15,6 +16,8 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
     var handTracking = HandTrackingProvider()
     var lastSnapStart = Date()
     var lastSnapFinish = Date()
+    var snapping = false
+    var fireballing = false
     @Published var latestHandTracking: HandsUpdates = .init(left: nil, right: nil)
     
     struct HandsUpdates {
@@ -68,7 +71,7 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
     }
     
     func snapStartGesture() -> Date? {
-        print("Start snap")
+        
         guard let rightHandAnchor = latestHandTracking.right,
               rightHandAnchor.isTracked
         else {
@@ -95,7 +98,7 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
         
         // Heart gesture detection is true when the distance between the index finger tips centers
         // and the distance between the thumb tip centers is each less than four centimeters.
-        let isSnapStartGesture = tipDistance < 0.02
+        let isSnapStartGesture = tipDistance < 0.025
         if !isSnapStartGesture {
             return nil
         }
@@ -109,9 +112,7 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
     func snapFinishGesture() -> SIMD3<Float>? {
         
         // Maybe change from tracking intermediate joints to tracking the end position which is index and thumb tip touching
-        
-        print("Finish snap")
-        if DateInterval(start: lastSnapStart, end: Date()).duration >= 0.5 {
+        if !snapping && DateInterval(start: lastSnapStart, end: Date()).duration >= 0.5 {
             return nil
         }
         
@@ -146,7 +147,7 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
         
         // Heart gesture detection is true when the distance between the index finger tips centers
         // and the distance between the thumb tip centers is each less than four centimeters.
-        let isSnapFinishGesture = pointDistance < 0.03
+        let isSnapFinishGesture = pointDistance < 0.025
         if !isSnapFinishGesture {
             return nil
         }
@@ -155,18 +156,60 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
         let half_distance = (originFromRightHandThumbIntermediateTipTransform - originFromRightHandMiddleFingerIntermediateTipTransform) / 2
         let midpoint = originFromRightHandMiddleFingerIntermediateTipTransform - half_distance
         
-        snapCount += 1
         
+        snapping = true
         lastSnapFinish = Date()
         
         return absThumbTip
         
     }
     
+    func doneSnapping() -> Bool {
+        if !snapping {
+            return false
+        }
+        
+        guard let rightHandAnchor = latestHandTracking.right,
+              rightHandAnchor.isTracked
+        else {
+            return false
+        }
+        
+        guard let rightHandThumbTip = rightHandAnchor.handSkeleton?.joint(.thumbTip),
+              let rightHandIndexFingerTip = rightHandAnchor.handSkeleton?.joint(.indexFingerTip),
+              rightHandIndexFingerTip.isTracked && rightHandThumbTip.isTracked
+        else {
+            return false
+        }
+        
+        // Get the position of all joints in world coordinates.
+        let originFromRightHandThumbTipTransform = matrix_multiply(
+            rightHandAnchor.originFromAnchorTransform, rightHandThumbTip.anchorFromJointTransform
+        ).columns.3.xyz
+        
+        let originFromRightHandIndexFingerTipTransform = matrix_multiply(
+            rightHandAnchor.originFromAnchorTransform, rightHandIndexFingerTip.anchorFromJointTransform
+        ).columns.3.xyz
+        
+        let tipDistance = distance(originFromRightHandThumbTipTransform, originFromRightHandIndexFingerTipTransform)
+        
+        let snapEnded = tipDistance > 0.1
+        if !snapEnded {
+            return false
+        }
+        
+        snapCount += 1
+        print(snapCount)
+        
+        snapping = false
+        
+        return true
+    }
+    
     func openPalm() -> (Float, SIMD3<Float>)? {
         
         // A palm is open when a hand is facing up, with distance between the tip of your thumb and the tip of your pinky
-        if DateInterval(start: lastSnapFinish, end: Date()).duration >= 1.5 { //TODO MAKE BIGGER
+        if !fireballing && DateInterval(start: lastSnapFinish, end: Date()).duration >= 1.5 { //TODO MAKE BIGGER
             return nil
         }
         
@@ -205,14 +248,21 @@ class SnapGestureModel: ObservableObject, @unchecked Sendable {
         
         let plane = normalize(cross(coplanar1, coplanar2))
         
-        let isOpenPalm = plane[1] < 0
+        let isOpenPalm = plane[1] < -0.50
         if !isOpenPalm {
+            fireballing = false
             return nil
         }
+        
+        fireballing = true
         
         let center = (originFromRightHandIndexTip + originFromRightHandPinkyTip + originFromRightHandThumbTip) / 3
         let size = distance(originFromRightHandThumbTip, center)
         
         return (size, center)
+    }
+    
+    func isFireballing() -> Bool {
+        return fireballing
     }
 }

@@ -52,11 +52,42 @@ struct ImmersiveView: View {
             if let sparkOrigin = gestureModel.snapFinishGesture() {
                 particlesEntity.transform.translation = SIMD3<Float>(sparkOrigin)
                 
+                if snapCount > 3 {
+                    var particles = ParticleEmitterComponent()
+                    particles.emitterShape = .point
+                    particles.emitterShapeSize = [1,1,1] * 0.05
+                    
+                    particles.mainEmitter.birthRate = 2000
+                    particles.mainEmitter.size = 0.05
+                    particles.mainEmitter.lifeSpan = 0.1
+                    particles.mainEmitter.color = .evolving(
+                        start: .single(.blue),
+                        end: .single(.red))
+                    particles.mainEmitter.angleVariation = 0.05
+                    
+                    particlesEntity.components.set(particles)
+                } else {
+                    var particles = ParticleEmitterComponent()
+                    particles.emitterShape = .point
+                    particles.emitterShapeSize = [1,1,1] * 0.05
+                    
+                    particles.mainEmitter.birthRate = 0
+                    particles.mainEmitter.size = 0.05
+                    particles.mainEmitter.lifeSpan = 0.1
+                    particles.mainEmitter.color = .constant(.single(.yellow))
+                    particles.mainEmitter.angleVariation = 0.05
+                    
+                    particlesEntity.components.set(particles)
+//                    particlesEntity.components[ParticleEmitterComponent]
+                }
+            } else if gestureModel.doneSnapping() {
+                print("done snapping")
+                
                 var particles = ParticleEmitterComponent()
                 particles.emitterShape = .point
                 particles.emitterShapeSize = [1,1,1] * 0.05
 
-                particles.mainEmitter.birthRate = 2000
+                particles.mainEmitter.birthRate = 0
                 particles.mainEmitter.size = 0.05
                 particles.mainEmitter.lifeSpan = 0.1
                 particles.mainEmitter.color = .evolving(
@@ -65,9 +96,7 @@ struct ImmersiveView: View {
                 particles.mainEmitter.angleVariation = 0.05
                 
                 particlesEntity.components.set(particles)
-            }
-            
-            if let (sparkSize, sparkOrigin) = gestureModel.openPalm() {
+            } else if let (sparkSize, sparkOrigin) = gestureModel.openPalm() {
                 particlesEntity.transform.translation = SIMD3<Float>(sparkOrigin)
                 
                 var particles = ParticleEmitterComponent()
@@ -87,6 +116,22 @@ struct ImmersiveView: View {
                 // Add physics and see if it works?
                 
                 
+            } else if !gestureModel.isFireballing() {
+//                print("done snapping")
+                
+                var particles = ParticleEmitterComponent()
+                particles.emitterShape = .point
+                particles.emitterShapeSize = [1,1,1] * 0.05
+
+                particles.mainEmitter.birthRate = 0
+                particles.mainEmitter.size = 0.05
+                particles.mainEmitter.lifeSpan = 0.1
+                particles.mainEmitter.color = .evolving(
+                    start: .single(.blue),
+                    end: .single(.red))
+                particles.mainEmitter.angleVariation = 0.05
+                
+                particlesEntity.components.set(particles)
             }
             
         }
